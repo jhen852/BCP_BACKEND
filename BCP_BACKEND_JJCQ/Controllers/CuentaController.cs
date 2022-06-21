@@ -77,9 +77,9 @@ namespace BCP_BACKEND_JJCQ.Controllers
                 {
                     conexion.Open();
                     var cmd = new SqlCommand("ABONO_RETIRO_MOVIMIENTO", conexion);
-                    SqlParameter sqlParameter = cmd.Parameters.AddWithValue("numero_cuenta", numero_cuenta);
-                    sqlParameter = cmd.Parameters.AddWithValue("importe", importe);
-                    sqlParameter = cmd.Parameters.AddWithValue("tipoMov", tipomovimiento);
+                    SqlParameter sqlParameter = cmd.Parameters.AddWithValue("@nro_cuenta", numero_cuenta);
+                    sqlParameter = cmd.Parameters.AddWithValue("@importe", importe);
+                    sqlParameter = cmd.Parameters.AddWithValue("@tipoMov", tipomovimiento);
                     cmd.CommandType = CommandType.StoredProcedure;
                     using (var rd = cmd.ExecuteReader())
                     {
